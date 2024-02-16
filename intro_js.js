@@ -51,3 +51,40 @@ const desayuno = (comida) => {
 }
 
 desayuno("huevitos");
+
+//arreglo
+
+const arreglo = ["Elemento"];
+const arreglo2 = new Array();
+
+arreglo.push("Otro elemento");
+arreglo.push(5);
+
+arreglo[10] = "Uno más";
+
+console.log(arreglo);
+
+//Recorrido tradicional del arreglo
+
+for(let i = 0; i<arreglo.length; i++){
+    console.log(arreglo[i]);
+}
+
+//recorridos alternativos
+
+for(let posicion in arreglo){
+    console.log(posicion);
+}
+
+//Objetos
+
+const objeto = {atributo: "valor", atributo2: "valor2"};
+objeto.atributo3 = 5;
+console.log(objeto);
+
+for(let atributo in objeto){
+    console.log(atributo);
+}
+
+//modificar html
+document.write("hola");
