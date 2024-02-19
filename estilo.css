@@ -1,29 +1,15 @@
-@import 'https://fonts.googleapis.com/css?family=Roboto:300,400,500';
-
-body {
-  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
-}
-
-
 body {
   margin: 0 auto;
-  max-width: 50em;
-}
-body {
-  font-family: "Helvetica", "Arial", sans-serif;
-}
-
-body {
+  max-width: 55em;
+  font-family: sans-serif;
   line-height: 1.5;
   padding: 4em 1em;
+  color: #474242;
 }
 
 h2 {
-  margin-top: 1em;
-  padding-top: 1em;
-}
-body {
-  color: #555;
+  margin-top: 0.5em;
+  padding-top: 0.5em;
 }
 
 h2,
@@ -41,4 +27,32 @@ h1{
 
 footer{
   color:rgb(13, 0, 21);
+}
+
+.protocolo{
+  color: #80bfda;
+}
+
+.dominio{
+  color:#8083da;
+}
+
+.ruta{
+  color:#a280da;
+}
+
+.class{
+  color:#a280da;
+}
+
+.parametros{
+  color: #cb80da;
+}
+
+.ancla{
+  color: #da80c7;
+}
+
+.ejemplo{
+  color:#a280da;
 }
