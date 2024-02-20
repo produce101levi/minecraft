@@ -1,0 +1,24 @@
+body {
+    margin: 0 auto;
+    max-width: 55em;
+    font-family: sans-serif;
+    line-height: 1.5;
+    padding: 4em 1em;
+    color: #555;
+  }
+
+  h1{
+    color:black
+  }
+
+  div.a, div.b{
+    visibility: hidden;
+  }
+
+  h3{
+    color:darkslateblue;
+  }
+
+  footer{
+    font-size:10px;
+  }
