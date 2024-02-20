@@ -4,6 +4,7 @@ const text = document.getElementById("campoEscondido");
 const title = document.getElementById("vdc");
 const preguntas = document.getElementById("preguntas");
 const bienvenida = document.getElementById("prfdbvd");
+const textoPreguntas = document.getElementById("textoPreguntas");
 
 const mostrarAcceso = () => {
     campoEscondido.style.visibility = "visible";
@@ -21,6 +22,8 @@ const subirContrasena = () => {
         vdc.style.color = "#534E7E";
         bienvenida.style.color = "#6e67a2";
         text.style.color = "#6F9064";
+        textoPreguntas.style.color = "#544B6C"
+
     } else{
         alert('Error');
     }
