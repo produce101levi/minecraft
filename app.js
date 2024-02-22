@@ -8,6 +8,10 @@ const filesystem = require('fs');
 filesystem.writeFileSync('hola.txt', 'Hola desde node');
 
 
+setTimeout(() => {
+    console.log('jojo te hackié');
+}, 4000)
+
 const arreglo = [10,500,60,30,6000];
 
 for (let item of arreglo){
@@ -15,3 +19,5 @@ for (let item of arreglo){
         console.log(item);
     }, item);
 }
+
+console.log("En qué momento se escribe esto");
