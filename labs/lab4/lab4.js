@@ -145,10 +145,10 @@ const numReverso = (valor) => {
 }
 
 trigger.onclick = () => {
-    hiddenSection.style.visibility = visibile;
-    document.write("<div id='hiddenSection' class='container'>");
-    document.write(`<p>${numReverso(valorInput)}</p>`);
-    document.write("</div>");
+    const hiddenSection = document.getElementById('hiddenSection');
+    hiddenSection.innerHTML = `<p>${numReverso(valorInput)}</p>`;
+    
+   
 } //atender duda con profe
 
 //Ejercicio 6
