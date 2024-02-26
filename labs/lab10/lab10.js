@@ -1,4 +1,7 @@
 const http = require ('http');
+const filesystem = require ('fs');
+
+filesystem.writeFileSync('hola.txt', 'Hola desde node');
 
 const server = http.createServer( (request, response) => {
     console.log(request.url);
