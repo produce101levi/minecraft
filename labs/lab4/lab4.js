@@ -146,11 +146,35 @@ const numReverso = (valor) => {
 
 trigger.onclick = () => {
     hiddenSection.style.visibility = visibile;
-    const results = numReverso(valorInput);
     document.write("<div id='hiddenSection' class='container'>");
-    document.write(`<p>${results}</p>`);
+    document.write(`<p>${numReverso(valorInput)}</p>`);
     document.write("</div>");
 } //atender duda con profe
 
+//Ejercicio 6
 
+const largo = 10
+const ancho = 10
+
+document.write("<div class='container'>");
+
+document.write("<br><p class='subtitle'>Ejercicio 6</p>");
+document.write("<p>El siguiente ejercicio trata de sacar el área y perímetro de un rectángulo </p>")
+
+const area = (largo,ancho) => {
+    const resA = largo * ancho;
+    document.write(`<p>El área tiene un valor de ${resA}</p>`);
+}
+
+const perimetro = (largo,ancho) => {
+    const resP = largo+largo+ancho+ancho;
+    document.write(`<p>El perímetro tiene un valor de ${resP}</p>`);
+}
+
+area(largo,ancho);
+perimetro(largo,ancho);
+
+
+
+document.write("</div>");
 
