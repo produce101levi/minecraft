@@ -21,3 +21,12 @@ for (let item of arreglo){
 }
 
 console.log("En qué momento se escribe esto");
+
+const http = require('http')
+
+const server = http.createServer( (request, response) => {
+    console.log(request.url);
+    response.setHeader('Content-Type','text/html');
+});
+
+server.listen(3000);
