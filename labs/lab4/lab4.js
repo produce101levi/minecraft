@@ -137,7 +137,6 @@ document.write("<input id='dadoValor' type='text'>");
 document.write("<button id='subirValor'>Submit</button>");
 document.write("</div>");
 
-const valorInput = document.getElementById('dadoValor');
 const trigger = document.getElementById('subirValor');
 
 const numReverso = (valor) => {
@@ -146,7 +145,9 @@ const numReverso = (valor) => {
 
 trigger.onclick = () => {
     const hiddenSection = document.getElementById('hiddenSection');
-    hiddenSection.innerHTML = `<p>${numReverso(valorInput)}</p>`;
+    const valorInput = document.getElementById('dadoValor').value;
+
+    hiddenSection.innerHTML = `<p>${numReverso(12345)}</p>`;
     
    
 } //atender duda con profe
