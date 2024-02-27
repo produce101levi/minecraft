@@ -89,10 +89,8 @@ const header = `<!DOCTYPE html>
             </div>
           </nav>
         <div class="box m-6">
-            <h1 class="title">Mi página</h1>
-        <figure class="image is-3by1">
-            <img src="https://pbs.twimg.com/media/FrSzFTGXwAYRXNM.jpg:large">
-          </figure>`
+            <h1 class="title">Levi's page</h1>
+        `
 
 const server = http.createServer( (request, response) => {
     console.log(request.url);
@@ -100,7 +98,10 @@ const server = http.createServer( (request, response) => {
     if (request.url == "/"){
         response.setHeader('Content-Type', 'text/html');
         response.write(header);
-        response.write(`<!DOCTYPE html>
+        response.write(`
+        <figure class="image is-3by1">
+            <img src="https://pbs.twimg.com/media/FrSzFTGXwAYRXNM.jpg:large">
+          </figure>
                 <section id="biografia">
                     <br><h2 class="subtitle"><strong>Bienvenido a mi página.</strong></h2>
                     <p>
@@ -146,10 +147,13 @@ const server = http.createServer( (request, response) => {
                 `);
         response.write(footer);
         response.end();
-    } else if (request.url == "/Preguntas") {
+    } else if (request.url == "/preguntas") {
       response.setHeader('Content-Type', 'text/html');
       response.write(header);
       response.write(`<!DOCTYPE html>
+      <figure class="image is-3by1">
+            <img src="https://i.pinimg.com/originals/24/5c/a6/245ca640095317ecff88ac8b5a995621.jpg">
+          </figure>
 
               <section id="Preguntas">
                   <br><h2 class="subtitle"><strong>Preguntas</strong></h2>
