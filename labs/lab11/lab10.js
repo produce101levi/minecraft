@@ -303,6 +303,11 @@ app.use((request, response, next) => {
   next(); //Le permite a la petición avanzar hacia el siguiente middleware
 });
 
+app.use('/ruta', (request, response, next) => {
+  response.send('Respuesta de la ruta "/ruta"'); 
+});
+           
+
 app.use((request, response, next) => {
   console.log('Otro middleware!');
   response.send('¡Hola mundo!'); //Manda la respuesta
