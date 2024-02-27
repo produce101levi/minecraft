@@ -3,87 +3,104 @@ const filesystem = require('fs');
 
 filesystem.writeFileSync('hola.txt', 'Hola desde node');
 
+const footer = `<footer>
+<br>
+<em>You drew stars around my scars and now I'm bleeding...</em><br>
+Emilio Leví Díaz Abarde<br>
+A01620887<br>
+A01620887@TEC.MX<br>
+Visual Studio Code <br>
+https://github.com/produce101levi/minecraft
+</footer>
+</div>
+
+</body>
+
+</html>`
+const header = `<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>
+            Página de Leví
+        </title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    </head>
+    <body>
+        <nav class="navbar" role="navigation" aria-label="main navigation">
+            <div class="navbar-brand">
+              <a class="navbar-item" href="https://bulma.io">
+                <img src="https://1000logos.net/wp-content/uploads/2017/03/Font-Levis-Logo.jpg" width="112" height="28">
+              </a>
+          
+              <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+              </a>
+            </div>
+          
+            <div id="navbarBasicExample" class="navbar-menu">
+              <div class="navbar-start">
+                <a class="navbar-item">
+                  Home
+                </a>
+          
+                <a class="navbar-item">
+                  Documentation
+                </a>
+          
+                <div class="navbar-item has-dropdown is-hoverable">
+                  <a class="navbar-link">
+                    More
+                  </a>
+          
+                  <div class="navbar-dropdown">
+                    <a class="navbar-item">
+                      About
+                    </a>
+                    <a class="navbar-item">
+                      Jobs
+                    </a>
+                    <a class="navbar-item">
+                      Contact
+                    </a>
+                    <hr class="navbar-divider">
+                    <a class="navbar-item">
+                      Report an issue
+                    </a>
+                  </div>
+                </div>
+              </div>
+          
+              <div class="navbar-end">
+                <div class="navbar-item">
+                  <div class="buttons">
+                    <a class="button is-danger">
+                      <strong>Sign up</strong>
+                    </a>
+                    <a class="button is-light">
+                      Log in
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </nav>
+        <div class="box m-6">
+            <h1 class="title">Mi página</h1>
+        <figure class="image is-3by1">
+            <img src="https://pbs.twimg.com/media/FrSzFTGXwAYRXNM.jpg:large">
+          </figure>`
+
 const server = http.createServer( (request, response) => {
     console.log(request.url);
 
     if (request.url == "/"){
         response.setHeader('Content-Type', 'text/html');
+        response.write(header);
         response.write(`<!DOCTYPE html>
-        <html>
-            <head>
-                <meta charset="utf-8">
-                <meta name="viewport" content="width=device-width, initial-scale=1">
-                <title>
-                    Página de Leví
-                </title>
-                <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
-            </head>
-            <body>
-                <nav class="navbar" role="navigation" aria-label="main navigation">
-                    <div class="navbar-brand">
-                      <a class="navbar-item" href="https://bulma.io">
-                        <img src="https://1000logos.net/wp-content/uploads/2017/03/Font-Levis-Logo.jpg" width="112" height="28">
-                      </a>
-                  
-                      <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
-                        <span aria-hidden="true"></span>
-                        <span aria-hidden="true"></span>
-                        <span aria-hidden="true"></span>
-                      </a>
-                    </div>
-                  
-                    <div id="navbarBasicExample" class="navbar-menu">
-                      <div class="navbar-start">
-                        <a class="navbar-item">
-                          Home
-                        </a>
-                  
-                        <a class="navbar-item">
-                          Documentation
-                        </a>
-                  
-                        <div class="navbar-item has-dropdown is-hoverable">
-                          <a class="navbar-link">
-                            More
-                          </a>
-                  
-                          <div class="navbar-dropdown">
-                            <a class="navbar-item">
-                              About
-                            </a>
-                            <a class="navbar-item">
-                              Jobs
-                            </a>
-                            <a class="navbar-item">
-                              Contact
-                            </a>
-                            <hr class="navbar-divider">
-                            <a class="navbar-item">
-                              Report an issue
-                            </a>
-                          </div>
-                        </div>
-                      </div>
-                  
-                      <div class="navbar-end">
-                        <div class="navbar-item">
-                          <div class="buttons">
-                            <a class="button is-danger">
-                              <strong>Sign up</strong>
-                            </a>
-                            <a class="button is-light">
-                              Log in
-                            </a>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </nav>
-                <div class="box m-6">
-                    <h1 class="title">Mi página</h1>
-                <figure class="image is-3by1">
-                    <img src="https://pbs.twimg.com/media/FrSzFTGXwAYRXNM.jpg:large">
-                  </figure>
                 <section id="biografia">
                     <br><h2 class="subtitle"><strong>Bienvenido a mi página.</strong></h2>
                     <p>
@@ -126,102 +143,16 @@ const server = http.createServer( (request, response) => {
                           </figure>
                     </div>
                   </div>
-                <footer>
-                    <br>
-                    <em>You drew stars around my scars and now I'm bleeding...</em><br>
-                    Emilio Leví Díaz Abarde<br>
-                    A01620887<br>
-                    A01620887@TEC.MX<br>
-                    Visual Studio Code <br>
-                    https://github.com/produce101levi/minecraft
-                </footer>
-                </div>
-                
-            </body>
-        
-        </html>`);
+                `);
+        response.write(footer);
         response.end();
     } else if (request.url == "/Preguntas") {
       response.setHeader('Content-Type', 'text/html');
+      response.write(header);
       response.write(`<!DOCTYPE html>
-      <html>
-          <head>
-              <meta charset="utf-8">
-              <meta name="viewport" content="width=device-width, initial-scale=1">
-              <title>
-                  Página de Leví
-              </title>
-              <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
-          </head>
-          <body>
-              <nav class="navbar" role="navigation" aria-label="main navigation">
-                  <div class="navbar-brand">
-                    <a class="navbar-item" href="https://bulma.io">
-                      <img src="https://1000logos.net/wp-content/uploads/2017/03/Font-Levis-Logo.jpg" width="112" height="28">
-                    </a>
-                
-                    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
-                      <span aria-hidden="true"></span>
-                      <span aria-hidden="true"></span>
-                      <span aria-hidden="true"></span>
-                    </a>
-                  </div>
-                
-                  <div id="navbarBasicExample" class="navbar-menu">
-                    <div class="navbar-start">
-                      <a class="navbar-item">
-                        Home
-                      </a>
-                
-                      <a class="navbar-item">
-                        Documentation
-                      </a>
-                
-                      <div class="navbar-item has-dropdown is-hoverable">
-                        <a class="navbar-link">
-                          More
-                        </a>
-                
-                        <div class="navbar-dropdown">
-                          <a class="navbar-item">
-                            About
-                          </a>
-                          <a class="navbar-item">
-                            Jobs
-                          </a>
-                          <a class="navbar-item">
-                            Contact
-                          </a>
-                          <hr class="navbar-divider">
-                          <a class="navbar-item">
-                            Report an issue
-                          </a>
-                        </div>
-                      </div>
-                    </div>
-                
-                    <div class="navbar-end">
-                      <div class="navbar-item">
-                        <div class="buttons">
-                          <a class="button is-danger">
-                            <strong>Sign up</strong>
-                          </a>
-                          <a class="button is-light">
-                            Log in
-                          </a>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </nav>
-              <div class="box m-6">
-                  <h1 class="title">Mi página</h1>
-              <figure class="image is-3by1">
-                  <img src="https://pbs.twimg.com/media/FrSzFTGXwAYRXNM.jpg:large">
-                </figure>
 
               <section id="Preguntas">
-                  <h2 class="subtitle"><strong>Preguntas</strong></h2>
+                  <br><h2 class="subtitle"><strong>Preguntas</strong></h2>
                   <strong>¿Cuál es la diferencia entre Internet y la World Wide Web?</strong><br>
                   El internet es la red de diferentes computadoras conectadas entre sí para
                   comunicar información, mientras que la world wide web es un sistema que
@@ -338,99 +269,15 @@ const server = http.createServer( (request, response) => {
                       </div>
                     </div>
               </section>
-              <footer>
-                  <br>
-                  <em>You drew stars around my scars and now I'm bleeding...</em><br>
-                  Emilio Leví Díaz Abarde<br>
-                  A01620887<br>
-                  A01620887@TEC.MX<br>
-                  Visual Studio Code <br>
-                  https://github.com/produce101levi/minecraft
-              </footer>
-              </div>
-              
-          </body>
-      
-      </html>`);
+              `);
+        response.write(footer);
+        response.end();
     } else {
       response.statusCode = 404;
       response.setHeader('Content-Type', 'text/html');
-        response.write(`<!DOCTYPE html>
-        <html>
-            <head>
-                <meta charset="utf-8">
-                <meta name="viewport" content="width=device-width, initial-scale=1">
-                <title>
-                    Página de Leví
-                </title>
-                <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
-            </head>
-            <body>
-                <nav class="navbar" role="navigation" aria-label="main navigation">
-                    <div class="navbar-brand">
-                      <a class="navbar-item" href="https://bulma.io">
-                        <img src="https://1000logos.net/wp-content/uploads/2017/03/Font-Levis-Logo.jpg" width="112" height="28">
-                      </a>
-                  
-                      <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
-                        <span aria-hidden="true"></span>
-                        <span aria-hidden="true"></span>
-                        <span aria-hidden="true"></span>
-                      </a>
-                    </div>
-                  
-                    <div id="navbarBasicExample" class="navbar-menu">
-                      <div class="navbar-start">
-                        <a class="navbar-item">
-                          Home
-                        </a>
-                  
-                        <a class="navbar-item">
-                          Documentation
-                        </a>
-                  
-                        <div class="navbar-item has-dropdown is-hoverable">
-                          <a class="navbar-link">
-                            More
-                          </a>
-                  
-                          <div class="navbar-dropdown">
-                            <a class="navbar-item">
-                              About
-                            </a>
-                            <a class="navbar-item">
-                              Jobs
-                            </a>
-                            <a class="navbar-item">
-                              Contact
-                            </a>
-                            <hr class="navbar-divider">
-                            <a class="navbar-item">
-                              Report an issue
-                            </a>
-                          </div>
-                        </div>
-                      </div>
-                  
-                      <div class="navbar-end">
-                        <div class="navbar-item">
-                          <div class="buttons">
-                            <a class="button is-danger">
-                              <strong>Sign up</strong>
-                            </a>
-                            <a class="button is-light">
-                              Log in
-                            </a>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </nav>
-                <div class="box m-6">
-                    <h1 class="title">Mi página</h1>
-                <figure class="image is-3by1">
-                    <img src="https://pbs.twimg.com/media/FrSzFTGXwAYRXNM.jpg:large">
-                  </figure>
+      response.write(header);
+      response.write(`<!DOCTYPE html>
+        
                 <section id="error">
                   <br><h2 class="title">Oh no!</h2>
                   <p>No se ha podido encontrar el sitio que buscas. Por favor vuelve a intentarlo,
