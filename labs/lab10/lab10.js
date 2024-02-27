@@ -43,7 +43,7 @@ const header = `<!DOCTYPE html>
           
             <div id="navbarBasicExample" class="navbar-menu">
               <div class="navbar-start">
-                <a class="navbar-item">
+                <a class="navbar-item" href="/">
                   Home
                 </a>
           
@@ -53,15 +53,15 @@ const header = `<!DOCTYPE html>
           
                 <div class="navbar-item has-dropdown is-hoverable">
                   <a class="navbar-link">
-                    More
+                    Letras
                   </a>
           
                   <div class="navbar-dropdown">
-                    <a class="navbar-item">
-                      About
+                    <a class="navbar-item" href="/letras_D">
+                      Delicate
                     </a>
-                    <a class="navbar-item">
-                      Jobs
+                    <a class="navbar-item" href="/letras_7R">
+                      7 Rings
                     </a>
                     <a class="navbar-item">
                       Contact
@@ -88,8 +88,7 @@ const header = `<!DOCTYPE html>
               </div>
             </div>
           </nav>
-        <div class="box m-6">
-            <h1 class="title">Levi's page</h1>
+        
         `
 
 const server = http.createServer( (request, response) => {
@@ -99,6 +98,8 @@ const server = http.createServer( (request, response) => {
         response.setHeader('Content-Type', 'text/html');
         response.write(header);
         response.write(`
+        <div class="box m-6">
+            <h1 class="title">Levi's page</h1>
         <figure class="image is-3by1">
             <img src="https://pbs.twimg.com/media/FrSzFTGXwAYRXNM.jpg:large">
           </figure>
@@ -150,8 +151,9 @@ const server = http.createServer( (request, response) => {
     } else if (request.url == "/preguntas") {
       response.setHeader('Content-Type', 'text/html');
       response.write(header);
-      response.write(`<!DOCTYPE html>
-      <figure class="image is-3by1">
+      response.write(`
+      <div class="box m-6">
+        <figure class="image is-3by1">
             <img src="https://i.pinimg.com/originals/24/5c/a6/245ca640095317ecff88ac8b5a995621.jpg">
           </figure>
 
@@ -276,12 +278,235 @@ const server = http.createServer( (request, response) => {
               `);
         response.write(footer);
         response.end();
-    } else {
+        
+    } else if(request.url=="/letras_D"){
+      response.write(header);
+      response.write(`
+      <div class="box m-6">
+            <h1 class="title">Delicate</h1>
+      <section>
+        <p> 
+        This ain't for the best
+        <br>My reputation's never been worse, so
+        <br>You must like me for me
+        <br>We can't make
+        <br>Any promises now, can we, babe?
+        <br>But you can make me a drink
+
+        <br><br>Dive bar on the East Side, where you at?
+        <br>Phone lights up my nightstand in the black
+        <br>Come here, you can meet me in the back
+        <br>Dark jeans and your Nikes, look at you
+        <br>Oh damn, never seen that color blue
+        <br>Just think of the fun things we could do
+
+        <br><br>'Cause I like you
+        <br>This ain't for the best
+        <br>My reputation's never been worse, so
+        <br>You must like me for me
+        <br>Yeah, I want you
+        <br>We can't make
+        <br>Any promises now, can we, babe?
+        <br>But you can make me a drink
+
+        <br>Is it cool that I said all that?
+        <br>Is it chill that you're in my head?
+        <br>'Cause I know that it's delicate (delicate)
+        <br>Is it cool that I said all that?
+        <br>Is it too soon to do this yet?
+        <br>'Cause I know that it's delicate
+        <br>Isn't it? Isn't it? Isn't it?
+        <br>Isn't it?
+        <br>Isn't it? Isn't it? Isn't it?
+        <br>Isn't it?
+        <br>Delicate
+
+        <br><br>Third floor on the West Side, me and you
+        <br>Handsome, you're a mansion with a view
+        <br>Do the girls back home touch you like I do?
+        <br>Long night, with your hands up in my hair
+        <br>Echoes of your footsteps on the stairs
+        <br>Stay here, honey, I don't wanna share
+
+        <br><br>'Cause I like you
+        <br>This ain't for the best
+        <br>My reputation's never been worse, so
+        <br>You must like me for me
+        <br>Yeah, I want you
+        <br>We can't make
+        <br>Any promises now, can we, babe?
+        <br>But you can make me a drink
+
+        <br>Is it cool that I said all that?
+        <br>Is it chill that you're in my head?
+        <br>'Cause I know that it's delicate (delicate)
+        <br>Is it cool that I said all that?
+        <br>Is it too soon to do this yet?
+        <br>'Cause I know that it's delicate
+        <br>Isn't it? Isn't it? Isn't it?
+        <br>Isn't it?
+        <br>Isn't it? Isn't it? Isn't it?
+        <br>Isn't it?
+        <br>Delicate
+
+        <br>
+        <br>
+        Sometimes I wonder when you sleep
+        <br>Are you ever dreaming of me?
+        <br>Sometimes when I look into your eyes
+        <br>I pretend you're mine, all the damn time
+        <br>'Cause I like you
+
+        <br>Is it cool that I said all that?
+        <br>Is it chill that you're in my head?
+        <br>'Cause I know that it's delicate (delicate)
+        <br>Yeah, I want you
+        <br>Is it cool that I said all that?
+        <br>Is it too soon to do this yet?
+        <br>'Cause I know that it's delicate (delicate)
+        <br>'Cause I like you
+        <br>Is it cool that I said all that?
+        <br>Isn't it? Isn't it? Isn't it? Isn't it?
+        <br>Is it chill that you're in my head?
+        <br>Isn't it? Isn't it? Isn't it? Isn't it?
+        <br>'Cause I know that it's delicate
+        <br>Isn't it? Isn't it? Isn't it? Isn't it?
+        <br>(Yeah, I want you)
+        <br>Is it cool that I said all that?
+        <br>Isn't it? Isn't it? Isn't it? Isn't it?
+        <br>Is it too soon to do this yet?
+        <br>Isn't it? Isn't it? Isn't it?
+        <br>'Cause I know that it's delicate
+        <br>(Isn't it?)
+        <br>Delicate
+        </p>
+      </section>`)
+      
+      response.write(footer);
+    } else if (request.url == "/letras_7R"){
+      response.write(header);
+      response.write(`<div class="box m-6">
+      <h1 class="title">7 Rings</h1>
+      <section>
+        <p> 
+        <br>Yeah
+        <br>Breakfast at Tiffany's and bottles of bubbles
+        <br>Girls with tattoos who like getting in trouble
+        <br>Lashes and diamonds, ATM machines
+        <br>Buy myself all of my favorite things
+
+        <br><br>Yeah
+        <br>Been through some bad shit, I should be a sad bitch
+        <br>Who would have thought it'd turn me to a savage?
+        <br>Rather be tied up with calls and not strings
+        <br>Write my own checks like I write what I sing, yeah (Yeah)
+
+        <br><br>My wrist, stop watchin'
+        <br>My neck is flossy
+        <br>Make big deposits
+        <br>My gloss is poppin'
+
+        <br><br>You like my hair?
+        <br>Gee, thanks! Just bought it
+        <br>I see it, I like it
+        <br>I want it, I got it
+        <br>Yeah
+
+        <br><br>I want it, I got it
+        <br>I want it, I got it
+        <br>I want it, I got it
+        <br>I want it, I got it
+
+        <br><br>You like my hair?
+        <br>Gee, thanks! Just bought it
+        <br>I see it, I like it
+        <br>I want it, I got it
+        <br>(Yep)
+
+        <br><br>Wearin' a ring but ain't gon' be no "Mrs."
+        <br>Bought matching diamonds for six of my bitches
+        <br>I'd rather spoil all my friends with my riches
+        <br>Think retail therapy my new addiction
+
+        <br><br>Whoever said money can't solve your problems
+        <br>Must not have had enough money to solve 'em
+        <br>They say, "Which one?" I say, "Nah, I want all of 'em"
+        <br>Happiness is the same price as "red-bottoms"
+
+        <br><br>My smile is beamin' (yeah)
+        <br>My skin is gleamin' (is gleamin')
+        <br>The way it shine
+        <br>I know you've seen it
+        <br>You've seen it
+
+        <br><br>I bought a crib
+        <br>Just for just for the closet closet
+        <br>Both his and hers
+        <br>I want it, I got it
+        <br>Yeah
+
+        <br><br>I want it, I got it
+        <br>I want it, I got it
+        <br>I want it, I got it
+        <br>I want it, I got it
+        <br>Baby
+
+        <br><br>You like my hair?
+        <br>Gee, thanks! Just bought it
+        <br>Oh, yeah
+        <br>I see it, I like it
+        <br>I want it, I got it
+        <br>Yep
+
+        <br><br>Yeah, my receipts be lookin' like phone numbers
+        <br>If it ain't money, then wrong number
+        <br>Black Card is my business card
+        <br>The way it be settin' the tone for me
+
+        <br><br>I don't mean to brag
+        <br>But I be like, "Put it in the bag"
+        <br>Yeah
+        <br>When you see them racks
+        <br>They stacked up like my ass
+        <br>Yeah
+
+        <br><br>Shoot
+        <br>Go from the store to the booth
+        <br>Make it all back in one loop
+        <br>Gimme the loot
+        <br>Never mind, I got the juice
+        <br>Nothin' but net when we shoot
+
+        <br><br>Look at my neck
+        <br>Look at my jet
+        <br>Ain't got enough money to pay me respect
+        <br>Ain't no budget when I'm on the set
+        <br>If I like it then that's what I get
+        <br>Yeah
+
+        <br><br>I want it, I got it
+        <br>I want it, I got it
+        <br>(Oh yeah)
+        <br>Yeah
+        <br>I want it, I got it
+        <br>I want it, I got it
+        <br>Oh, yeah, yeah
+
+        <br><br>You like my hair?
+        <br>Gee, thanks! Just bought it
+        <br>I see it, I like it
+        <br>I want it, I got it
+        <br> (I see, yep)
+        </p>
+        </section>`)
+        response.write(footer);
+    }
+    else {
       response.statusCode = 404;
       response.setHeader('Content-Type', 'text/html');
       response.write(header);
       response.write(`<!DOCTYPE html>
-        
+      <div class="box m-6">
                 <section id="error">
                   <br><h2 class="title">Oh no!</h2>
                   <p>No se ha podido encontrar el sitio que buscas. Por favor vuelve a intentarlo,
