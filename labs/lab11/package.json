@@ -1,0 +1,25 @@
+{
+  "name": "lab11",
+  "version": "1.0.0",
+  "description": "Proyecto compañero del curso TC2005B",
+  "main": "lab10.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/produce101levi/minecraft.git"
+  },
+  "keywords": [
+    "tc2005b"
+  ],
+  "author": "Leví Díaz",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/produce101levi/minecraft/issues"
+  },
+  "homepage": "https://github.com/produce101levi/minecraft#readme",
+  "devDependencies": {
+    "nodemon": "^3.1.0"
+  }
+}
