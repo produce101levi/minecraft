@@ -30,7 +30,7 @@ const header = `<!DOCTYPE html>
     <body>
         <nav class="navbar" role="navigation" aria-label="main navigation">
             <div class="navbar-brand">
-              <a class="navbar-item" href="https://bulma.io">
+              <a class="navbar-item" href="/">
                 <img src="https://1000logos.net/wp-content/uploads/2017/03/Font-Levis-Logo.jpg" width="112" height="28">
               </a>
           
@@ -43,12 +43,12 @@ const header = `<!DOCTYPE html>
           
             <div id="navbarBasicExample" class="navbar-menu">
               <div class="navbar-start">
-                <a class="navbar-item">
+                <a class="navbar-item" href="/">
                   Home
                 </a>
           
-                <a class="navbar-item">
-                  Documentation
+                <a class="navbar-item" href="/Preguntas">
+                  Preguntas
                 </a>
           
                 <div class="navbar-item has-dropdown is-hoverable">
@@ -89,10 +89,8 @@ const header = `<!DOCTYPE html>
             </div>
           </nav>
         <div class="box m-6">
-            <h1 class="title">Mi página</h1>
-        <figure class="image is-3by1">
-            <img src="https://pbs.twimg.com/media/FrSzFTGXwAYRXNM.jpg:large">
-          </figure>`
+            <h1 class="title">Levi's Page</h1>
+        `
 
 const server = http.createServer( (request, response) => {
     console.log(request.url);
@@ -101,6 +99,9 @@ const server = http.createServer( (request, response) => {
         response.setHeader('Content-Type', 'text/html');
         response.write(header);
         response.write(`<!DOCTYPE html>
+        <figure class="image is-3by1">
+            <img src="https://pbs.twimg.com/media/FrSzFTGXwAYRXNM.jpg:large">
+          </figure>
                 <section id="biografia">
                     <br><h2 class="subtitle"><strong>Bienvenido a mi página.</strong></h2>
                     <p>
