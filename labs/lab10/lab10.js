@@ -30,7 +30,7 @@ const header = `<!DOCTYPE html>
     <body>
         <nav class="navbar" role="navigation" aria-label="main navigation">
             <div class="navbar-brand">
-              <a class="navbar-item" href="https://bulma.io">
+              <a class="navbar-item" href="/">
                 <img src="https://1000logos.net/wp-content/uploads/2017/03/Font-Levis-Logo.jpg" width="112" height="28">
               </a>
           
@@ -47,8 +47,8 @@ const header = `<!DOCTYPE html>
                   Home
                 </a>
           
-                <a class="navbar-item">
-                  Documentation
+                <a class="navbar-item" href ="/preguntas">
+                  Preguntas
                 </a>
           
                 <div class="navbar-item has-dropdown is-hoverable">
@@ -292,4 +292,4 @@ const server = http.createServer( (request, response) => {
     }
 });
 
-server.listen(4000);
+server.listen(3000);
