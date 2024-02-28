@@ -30,6 +30,47 @@ const subirContrasena = () => {
 
 }
 
+const indicadorFortaleza = document.getElementById("passwordStrength");
+const inputContra = document.getElementById("password");
+
+const revisarFortaleza = () => {
+    const contra = inputContra.value;
+    const fortaleza = calculatePasswordStrength(contra);
+
+    indicadorFortaleza.textContent = `Seguridad de contraseña: ${fortaleza}/10`;
+}
+
+const calculatePasswordStrength = (contra) => {
+    const minLength = 8;
+    const hasMayus = /[A-Z]/.test(contra);
+    const hasMinus = /[a-z]/.test(contra);
+    const hasNumero = /\d/.test(contra);
+    const hasCarEsp = /[!@#$%&^*()_+{}:;<>,.?~/-]/.test(contra);
+
+    let fortaleza = 0;
+
+    if (contra.length >= minLength){
+        fortaleza += 2;
+    }
+    if (hasMayus){
+        fortaleza +=2;
+    }
+    if (hasMinus){
+        fortaleza +=2;
+    }
+    if (hasNumero){
+        fortaleza +=2;
+    }
+    if (hasCarEsp){
+        fortaleza +=2;
+    }
+
+    return fortaleza;
+
+}
+
+
+
 const cambiarFuente = () => {
     boton.style.fontFamily = "serif";
     boton1.style.fontFamily = "serif";

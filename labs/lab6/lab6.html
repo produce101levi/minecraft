@@ -10,18 +10,21 @@
     <p id="prfdbvd">¡Bienvenid@! Aquí podrás hacer la verificación de tu contraseña.<br>
       A continuación, tras oprimir el botón "¡Ingresa ahora!" tendrás acceso a
       la sección de validación de contraseñas. <strong>Deberás ingresar tu misma contraseña en
-      los dos campos.</strong><br>Tu contraseña será considerada válida si los dos campos contienen la misma contraseña.<br></p>
+      los dos campos.</strong><br>Tu contraseña será considerada válida si los dos campos contienen la misma contraseña.<br>
+      Además, deberá contener al menos una mayúscula, un carácter especial, una minúsucla y un número.<br></p>
     
     <br>
     <button id="mostrar">¡Ingresa ahora!</button><br><br>
     <div id="campoEscondido" class="a">
-      <label for="password" id="labelPSWD">Password: </label>
-      <input type="password" id="password">
+      <label for="password" id="labelPSWD">Contraseña: </label>
+      <input type="password" id="password" oninput="revisarFortaleza()">
       <br>
-      <label for="confirmp" id="labelPSWD2">Verify password: </label>
+      <label for="confirmp" id="labelPSWD2">Verificar contraseña: </label>
       <input type="password" id="confirmp">
       <br><br>
       <button id="submit">Verificar</button>
+      <span id="passwordStrength"></span>
+
     </div>
     <br>
     <div id="preguntas", class="b">
