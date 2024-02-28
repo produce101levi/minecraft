@@ -148,15 +148,21 @@ const server = http.createServer( (request, response) => {
                 `);
         response.write(footer);
         response.end();
-    } else if (request.url == "/preguntas") {
+    } else if (request.url == "/preguntas" && request.method == "GET") {
       response.setHeader('Content-Type', 'text/html');
       response.write(header);
       response.write(`
+      
       <div class="box m-6">
         <figure class="image is-3by1">
             <img src="https://i.pinimg.com/originals/24/5c/a6/245ca640095317ecff88ac8b5a995621.jpg">
           </figure>
-
+          <h1 class="title">Ingresar preguntas</h1>
+          <form action="/preguntas" method="POST">
+            <label class="label" for="question">Pregunta</label>
+            <input name ="question" id="question" type="text" class="input"><br>
+            <input class="button is-danger" type="submit" value="Construir">
+          </form>
               <section id="Preguntas">
                   <br><h2 class="subtitle"><strong>Preguntas</strong></h2>
                   <strong>¿Cuál es la diferencia entre Internet y la World Wide Web?</strong><br>
@@ -279,7 +285,22 @@ const server = http.createServer( (request, response) => {
         response.write(footer);
         response.end();
         
-    } else if(request.url=="/letras_D"){
+    } else if (request.url == "/preguntas" && request.method == "POST") {
+      const datos = [];
+      request.on('data', (dato) => {
+          console.log(dato);
+          datos.push(dato);
+      });
+      return request.on('end', () => {
+          const datos_completos = Buffer.concat(datos).toString();
+          console.log(datos_completos);
+          const question = datos_completos.split('&')[0].split('=')[1];
+          console.log(question);
+          filesystem.writeFileSync('question.txt', question);
+          return response.end();
+      });
+
+     } else if(request.url=="/letras_D"){
       response.write(header);
       response.write(`
       <div class="box m-6">
