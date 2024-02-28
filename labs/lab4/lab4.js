@@ -115,66 +115,46 @@ promedios(matriz);
 
 //Ejercicio 5
 
-/*document.write("<div class='container'>");
-document.write("<br><p class='subtitle'>Ejercicio 5</p>");
-
-
-const reversedNum = num => parseFloat(num.toString().split('').reverse().join('')) * Math.sign(num)
-
-const numReverso = (valor) => {
-    parseFloat(valor.toString().split(',').reverse().join('')) * Math.sign(valor);
-}
-
-document.write(`<p>${reversedNum(12345)}</p>`)
-
-document.write("</div>");
-*/
-
 document.write("<div class='container'>");
 document.write("<br><p class='subtitle'>Ejercicio 5</p>");
 
-document.write("<input id='dadoValor' type='text'>");
-document.write("<button id='subirValor'>Submit</button>");
-document.write("</div>");
+const numReverso = valor => 
+    parseFloat(valor.toString().split('').reverse().join('')) * Math.sign(valor);
 
-const valorInput = document.getElementById('dadoValor');
-const trigger = document.getElementById('subirValor');
 
-const numReverso = (valor) => {
-    parseFloat(valor.toString().split(',').reverse().join('')) * Math.sign(valor);
-}
+//Número a invertir: 12345
 
-trigger.onclick = () => {
-    const hiddenSection = document.getElementById('hiddenSection');
-    hiddenSection.innerHTML = `<p>${numReverso(valorInput)}</p>`;
-    
-   
-} //atender duda con profe
+document.write(`<p>Este programa invertirá el número 12345.</p>`)
+document.write(`<p>${numReverso(12345)}</p>`)
+document.write(`</div>`)
 
 //Ejercicio 6
 
-const largo = 10
-const ancho = 10
+document.write(`<div class ='container'>`);
+document.write(`<br><p class="subtitle">Ejercicio 6</h2>`);
+document.write(`<p>Para este ejercicio, debemos tomar en consideración que éste se trata de 
+un rectángulo con un largo de 10cm y un ancho de 5cm.</p>`);
+const crearRectangulo = (largo, ancho) => {
+    return {
+        largo,
+        ancho,
 
-document.write("<div class='container'>");
-
-document.write("<br><p class='subtitle'>Ejercicio 6</p>");
-document.write("<p>El siguiente ejercicio trata de sacar el área y perímetro de un rectángulo </p>")
-
-const area = (largo,ancho) => {
-    const resA = largo * ancho;
-    document.write(`<p>El área tiene un valor de ${resA}</p>`);
+        calcularArea: () => largo * ancho,
+        calcularPerimetro: () => 2 * (largo + ancho)
+    };
 }
 
-const perimetro = (largo,ancho) => {
-    const resP = largo+largo+ancho+ancho;
-    document.write(`<p>El perímetro tiene un valor de ${resP}</p>`);
-}
 
-area(largo,ancho);
-perimetro(largo,ancho);
+const rectangulo = crearRectangulo(10, 5);
 
 
+const area = rectangulo.calcularArea();
+document.write(`<p>El área tiene un valor de ${area}</p>`);
 
-document.write("</div>");
+
+const perimetro = rectangulo.calcularPerimetro();
+document.write(`<p>El perímetro tiene un valor de ${perimetro}</p>`);
+
+document.write(`</div>`);
+
 
