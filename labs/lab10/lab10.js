@@ -1,8 +1,6 @@
 const http = require('http');
 const filesystem = require('fs');
 
-filesystem.writeFileSync('hola.txt', 'Hola desde node');
-
 const footer = `<footer>
 <br>
 <em>You drew stars around my scars and now I'm bleeding...</em><br>
@@ -157,7 +155,7 @@ const server = http.createServer( (request, response) => {
         <figure class="image is-3by1">
             <img src="https://i.pinimg.com/originals/24/5c/a6/245ca640095317ecff88ac8b5a995621.jpg">
           </figure>
-          <h1 class="title">Ingresar preguntas</h1>
+          <br><h1 class="title">Ingresar preguntas</h1>
           <form action="/preguntas" method="POST">
             <label class="label" for="question">Pregunta</label>
             <input name ="question" id="question" type="text" class="input"><br>
