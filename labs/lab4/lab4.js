@@ -158,3 +158,18 @@ document.write(`<p>El perímetro tiene un valor de ${perimetro}</p>`);
 document.write(`</div>`);
 
 
+document.write(`<p><strong>¿Qué diferencias y semejanzas hay entre Java y JavaScript?</strong>
+<br> JavaScript y Java son similares en su sintáxis básica y el hecho de que ambos
+lenguajes se basan en objetos. Sin embargo, Java se basa en la creación de aplicaciones,
+mientras que JavaScript se basa en la creación de sitios web. Java se debe ejecutar
+con su propio entorno de ejecución, mientras que JavaScript se ejecuta directamente
+en los navegadores web.<br>
+¿Qué métodos tiene el objeto Date? (Menciona al menos 5*)
+<br> getFullYear(), getMonth(), getDay(), getHours(), getDate(). <br>
+¿Qué métodos tienen los arreglos? (Menciona al menos 5*)
+<br> toString(), length, at(), join(), pop(), push() <br>
+¿Cómo se declara una variable con alcance local dentro de una función?
+<br> Con "var", "let" o "const" <br>
+¿Qué implicaciones tiene utilizar variables globales dentro de funciones?
+<br>El código fuente es menos legible, la variable no puede ser modificada por la función, 
+la seguridad se reduce, etc.</p>`)
