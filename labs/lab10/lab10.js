@@ -45,8 +45,8 @@ const header = `<!DOCTYPE html>
                   Home
                 </a>
           
-                <a class="navbar-item" href ="/preguntas">
-                  Preguntas
+                <a class="navbar-item">
+                  Documentation
                 </a>
           
                 <div class="navbar-item has-dropdown is-hoverable">
@@ -86,8 +86,11 @@ const header = `<!DOCTYPE html>
               </div>
             </div>
           </nav>
-        
-        `
+        <div class="box m-6">
+            <h1 class="title">Mi página</h1>
+        <figure class="image is-3by1">
+            <img src="https://pbs.twimg.com/media/FrSzFTGXwAYRXNM.jpg:large">
+          </figure>`
 
 const server = http.createServer( (request, response) => {
     console.log(request.url);
@@ -95,12 +98,7 @@ const server = http.createServer( (request, response) => {
     if (request.url == "/"){
         response.setHeader('Content-Type', 'text/html');
         response.write(header);
-        response.write(`
-        <div class="box m-6">
-            <h1 class="title">Levi's page</h1>
-        <figure class="image is-3by1">
-            <img src="https://pbs.twimg.com/media/FrSzFTGXwAYRXNM.jpg:large">
-          </figure>
+        response.write(`<!DOCTYPE html>
                 <section id="biografia">
                     <br><h2 class="subtitle"><strong>Bienvenido a mi página.</strong></h2>
                     <p>
