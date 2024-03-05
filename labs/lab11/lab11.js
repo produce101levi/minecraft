@@ -23,9 +23,18 @@ app.use((request, response, next) => {
 
 const rutasPreguntas = require('./routes/preguntas.routes');
 
+
+
 app.use('/', rutasPreguntas);
 
+const rutasLetras = require('./routes/letras.routes');
 
+
+app.use('/', rutasLetras);
+
+const rutasContacto = require('./routes/contacto.routes');
+
+app.use('/', rutasContacto);
 
 app.get('/', (request, response, next) => {
   response.send(`<!DOCTYPE html>
@@ -74,7 +83,7 @@ app.get('/', (request, response, next) => {
                       <a class="navbar-item" href="/letras_7R">
                         7 Rings
                       </a>
-                      <a class="navbar-item">
+                      <a class="navbar-item" href="/contacto">
                         Contact
                       </a>
                       <hr class="navbar-divider">
