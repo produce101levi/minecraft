@@ -5,7 +5,7 @@ const preguntasController =
 
 
 
-router.get('/preguntas', preguntasController.get_construir);
+router.get('/preguntas', preguntasController.get_preguntas);
 
 router.post('/preguntas', (request, response, next) => {
     console.log(request.body);

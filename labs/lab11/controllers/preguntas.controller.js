@@ -3,8 +3,8 @@ exports.get_preguntas = (request, response, next) => {
 };
 
 exports.post_preguntas = (request, response, next) => {
-    console.log(request.body);
-    preguntas.push(request.body);
+    console.log(request.body.question);
+    preguntas.push(request.body.question);
     response.redirect('/');
 };
 exports.get_root = (request, response, next) => {
