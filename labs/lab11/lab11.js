@@ -1,10 +1,11 @@
 const express = require('express');
 const app = express();       
+const fs = require('fs');
+const path = require('path');
 
 app.set('view engine','ejs');
 app.set('views','views');
 
-const path = require('path');
 
 app.use(express.static(path.join(__dirname, 'public')));
 
@@ -26,9 +27,25 @@ const rutasPreguntas = require('./routes/preguntas.routes');
 
 
 app.use('/', rutasPreguntas);
+const preguntasController = require('./controllers/preguntas.controller');
 
 const rutasLetras = require('./routes/letras.routes');
 
+// app.get('/', (request, response, next) => {
+//   response.render('preguntas');
+// })
+
+// app.post('/submit', (request, response, next) => {
+//   const question = request.body.question;
+//   fs.appendFile('questions.txt', `${question}\n`, (err) => {
+//     if (err) throw (err);
+//     console.log('Pregunta enviada con éxito')
+//   });
+
+//   response.redirect('/preguntas');
+// });
+
+app.post('/submit', preguntasController.submitQuestion);
 
 app.use('/', rutasLetras);
 
@@ -171,7 +188,6 @@ https://github.com/produce101levi/minecraft
 </html>`);
 
 });
-
 
 
 app.use((request, response, next) => {
