@@ -10,7 +10,14 @@ exports.submitQuestion = (request, response, next) => {
       if (err) throw err;
       console.log('Pregunta enviada con éxito');
     });
-    response.redirect('/preguntas');
+    
+    fs.readFile('questions.txt', 'utf8', (err, data) => {
+        if (err) throw err;
+
+        const listaPreguntas = data.split('\n');
+        
+        response.render('lista_preguntas', {questions: listaPreguntas});
+    })
   };
 
 exports.get_root = (request, response, next) => {

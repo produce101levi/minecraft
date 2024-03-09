@@ -1,0 +1,21 @@
+<%- include('includes/head.ejs') %>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Preguntas</title>
+</head>
+<body>
+    <div class="box m-6">
+
+        <h1 class="title">Preguntas</h1>
+        <h2 class="subtitle">Reinicia la página para ver tu pregunta</h2>
+        <ul>
+          <% questions.forEach((question) => { %>
+            <li><%= question %></li>
+          <% }); %>
+        </ul>
+
+</body>
+</html>
+<%- include('includes/foot.ejs') %>
