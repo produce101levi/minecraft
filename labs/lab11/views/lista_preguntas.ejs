@@ -9,12 +9,12 @@
     <div class="box m-6">
 
         <h1 class="title">Preguntas</h1>
-        <h2 class="subtitle">Reinicia la página para ver tu pregunta</h2>
-        <ul>
-          <% questions.forEach((question) => { %>
-            <li><%= question %></li>
-          <% }); %>
-        </ul>
+          <% for (let pregunta of preguntas) { %>
+            <div class="card">
+              <strong><%= pregunta.question %></strong>
+              <br><%= pregunta.answer %>
+            </div>
+          <% }; %>
 
 </body>
 </html>

@@ -1,26 +1,19 @@
-const fs = require('fs');
+const Pregunta = require('../models/preguntas.model');
 
 exports.get_preguntas = (request, response, next) => {
-    response.render('preguntas'); 
+    response.render('lista_preguntas'); 
 };
 
-exports.submitQuestion = (request, response, next) => {
-    const question = request.body.question;
-    fs.appendFile('questions.txt', `${question}\n`, (err) => {
-      if (err) throw err;
-      console.log('Pregunta enviada con éxito');
-    });
-    
-    fs.readFile('questions.txt', 'utf8', (err, data) => {
-        if (err) throw err;
-
-        const listaPreguntas = data.split('\n');
-        
-        response.render('lista_preguntas', {questions: listaPreguntas});
-    })
-  };
+exports.post_preguntas = (request, response, next) => {
+  console.log(request.body);
+  const pregunta = new Pregunta(request.body.question, request.body.answer);
+  pregunta.save();
+  response.redirect('/');
+}
 
 exports.get_root = (request, response, next) => {
     console.log('Ruta /');
-    response.render('preguntas');
+    response.render('lista_preguntas', {
+        preguntas: Pregunta.fetchAll(),
+    });
 }
