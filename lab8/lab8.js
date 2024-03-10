@@ -21,3 +21,16 @@ function writeFile(text) {
 
 const msg = 'Hola mundo desde Node!';
 writeFile(msg);
+
+//3
+
+//Triángulo
+const size = 10;
+
+for (let i = 1; i <= size; i++) {
+    let line = "";
+    for (let j = 1; j <= i; j++) {
+        line += "* ";
+    }
+    console.log(line);
+}
