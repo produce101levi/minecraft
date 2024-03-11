@@ -8,14 +8,15 @@ const server = http.createServer((request, response) => {
     if (request.url === "/"){
         
         const content = `<!DOCTYPE html>
+        
         <html>
+        
             <head>
                 <meta charset="utf-8">
                 <title>
                     Página de Leví
                 </title>
-                <style>body{margin:0 auto;max-width:55em;font-family:sans-serif;line-height:1.5;padding:4em 1em;color:#474242}h2{margin-top:.5em;padding-top:.5em}h2,strong{color:#600089}a{color:#d79be7}#canciones,h1{color:#2e054d}footer{color:#0d0015}.protocolo{color:#80bfda}.dominio{color:#8083da}.class,.ejemplo,.ruta{color:#a280da}.parametros{color:#cb80da}.ancla{color:#da80c7}
-                </style>
+                <link rel="stylesheet" type="text/css" href="/style.css">
             </head>
             <body>
                 <h1>Mi página</h1>
