@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.1
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost
--- Generation Time: Mar 07, 2024 at 05:02 PM
--- Server version: 10.4.28-MariaDB
--- PHP Version: 8.2.4
+-- Servidor: localhost
+-- Tiempo de generación: 07-03-2024 a las 17:02:09
+-- Versión del servidor: 10.4.27-MariaDB
+-- Versión de PHP: 8.2.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,13 +18,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `minecraft`
+-- Base de datos: `minecraft`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `construccion`
+-- Estructura de tabla para la tabla `construccion`
 --
 
 CREATE TABLE `construccion` (
@@ -33,56 +33,56 @@ CREATE TABLE `construccion` (
   `imagen` varchar(400) NOT NULL,
   `username` varchar(30) NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `Usuario`
+-- Estructura de tabla para la tabla `usuario`
 --
 
-CREATE TABLE `Usuario` (
+CREATE TABLE `usuario` (
   `username` varchar(30) NOT NULL,
   `password` varchar(400) NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
 
 --
--- Indexes for dumped tables
+-- Índices para tablas volcadas
 --
 
 --
--- Indexes for table `construccion`
+-- Indices de la tabla `construccion`
 --
 ALTER TABLE `construccion`
   ADD PRIMARY KEY (`id`),
   ADD KEY `username` (`username`);
 
 --
--- Indexes for table `Usuario`
+-- Indices de la tabla `usuario`
 --
-ALTER TABLE `Usuario`
+ALTER TABLE `usuario`
   ADD PRIMARY KEY (`username`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT de las tablas volcadas
 --
 
 --
--- AUTO_INCREMENT for table `construccion`
+-- AUTO_INCREMENT de la tabla `construccion`
 --
 ALTER TABLE `construccion`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- Constraints for dumped tables
+-- Restricciones para tablas volcadas
 --
 
 --
--- Constraints for table `construccion`
+-- Filtros para la tabla `construccion`
 --
 ALTER TABLE `construccion`
-  ADD CONSTRAINT `fk_usuarios` FOREIGN KEY (`username`) REFERENCES `Usuario` (`username`);
+  ADD CONSTRAINT `fk_usuarios` FOREIGN KEY (`username`) REFERENCES `usuario` (`username`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
