@@ -14,7 +14,15 @@ exports.post_preguntas = (request, response, next) => {
 
 exports.get_root = (request, response, next) => {
     console.log('Ruta /');
+    let ultima_pregunta = request.get('Cookie');
+    if (ultima_pregunta) {
+        ultima_pregunta = ultima_pregunta.split('=')[1];
+    } else {
+        ultima_pregunta = '';
+    }
+    console.log(ultima_pregunta);
     response.render('lista_preguntas', {
         preguntas: Pregunta.fetchAll(),
+        ultima_pregunta: ultima_pregunta,
     });
 }
