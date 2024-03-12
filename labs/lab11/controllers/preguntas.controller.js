@@ -8,7 +8,7 @@ exports.post_preguntas = (request, response, next) => {
   console.log(request.body);
   const pregunta = new Pregunta(request.body.question, request.body.answer);
   pregunta.save();
-  response.setHeader('Set-Cookie', 'ultima_pregunta=' + 'request.body.question');
+  response.setHeader('Set-Cookie', 'ultima_pregunta=' + request.body.question + '; HttpOnly');
   response.redirect('/');
 }
 

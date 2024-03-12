@@ -5,17 +5,22 @@
   <meta charset="utf-8">
   <title>Preguntas</title>
 </head>
-<body>
+  <body>
     <div class="box m-6">
 
-        <h1 class="title">Preguntas</h1>
-          <% for (let pregunta of preguntas) { %>
-            <div class="card">
-              <strong><%= pregunta.question %></strong>
-              <br><%= pregunta.answer %>
-            </div>
-          <% }; %>
+      <h1 class="title">Preguntas</h1>
+        <% for (let pregunta of preguntas) { %>
+          <div class="card">
+            <strong><%= pregunta.question %></strong>
+            <br><%= pregunta.answer %>
+          </div>
+        <% }; %>
+    </div>
 
-</body>
+    <% if(ultima_pregunta != '') { %>
+      <div> La última pregunta fue <%-ultima_pregunta%>.</div>
+    <% } %>
+
+    <%- include('includes/foot.ejs') %>
+  </body>
 </html>
-<%- include('includes/foot.ejs') %>
