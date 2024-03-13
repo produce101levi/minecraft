@@ -29,9 +29,16 @@ exports.get_root = (request, response, next) => {
         ultima_pregunta = '';
     }
     console.log(ultima_pregunta);
-    response.render('lista_preguntas', {
-        preguntas: Pregunta.fetchAll(),
-        ultima_pregunta: ultima_pregunta,
-        username: request.session.username || '',
+    Pregunta.fetchAll().then(([rows, fieldData]) => {
+        console.log(rows);
+        response.render('lista_preguntas', {
+            preguntas: rows,
+            ultima_pregunta: ultima_pregunta,
+            username: request.session.username || '',
+        });
+    })
+
+    .catch((error) => {
+        console.log(error);
     });
 }

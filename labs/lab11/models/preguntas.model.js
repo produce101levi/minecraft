@@ -1,9 +1,4 @@
-const preguntas = [
-    {
-        question: "Can I ask you a question?",
-        answer: "Can I answer your question"
-    }
-];
+db = require('../util/database');
 
 module.exports = class Pregunta {
     constructor(mi_question, mi_answer){
@@ -19,6 +14,6 @@ module.exports = class Pregunta {
     }
 
     static fetchAll() {
-        return preguntas;
+        return db.execute('SELECT * FROM sitio_preguntas');
     }
 }

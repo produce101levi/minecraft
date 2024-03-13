@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Mar 13, 2024 at 07:26 PM
+-- Generation Time: Mar 13, 2024 at 07:54 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -29,7 +29,8 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `preguntas` (
   `ID` int(10) NOT NULL,
-  `Pregunta` varchar(300) NOT NULL
+  `Pregunta` varchar(300) NOT NULL,
+  `username` varchar(45) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 -- --------------------------------------------------------
@@ -44,6 +45,17 @@ CREATE TABLE `respuestas` (
   `IDPregunta` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `usuario`
+--
+
+CREATE TABLE `usuario` (
+  `username` varchar(45) NOT NULL,
+  `contraseña` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
 --
 -- Indexes for dumped tables
 --
@@ -52,7 +64,8 @@ CREATE TABLE `respuestas` (
 -- Indexes for table `preguntas`
 --
 ALTER TABLE `preguntas`
-  ADD PRIMARY KEY (`ID`);
+  ADD PRIMARY KEY (`ID`),
+  ADD KEY `username` (`username`);
 
 --
 -- Indexes for table `respuestas`
@@ -60,6 +73,12 @@ ALTER TABLE `preguntas`
 ALTER TABLE `respuestas`
   ADD PRIMARY KEY (`ID`),
   ADD KEY `IDPregunta` (`IDPregunta`);
+
+--
+-- Indexes for table `usuario`
+--
+ALTER TABLE `usuario`
+  ADD PRIMARY KEY (`username`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -80,6 +99,12 @@ ALTER TABLE `respuestas`
 --
 -- Constraints for dumped tables
 --
+
+--
+-- Constraints for table `preguntas`
+--
+ALTER TABLE `preguntas`
+  ADD CONSTRAINT `preguntas_ibfk_1` FOREIGN KEY (`username`) REFERENCES `usuario` (`username`);
 
 --
 -- Constraints for table `respuestas`
