@@ -1,13 +1,6 @@
 <%- include('includes/head.ejs', {username: username}) %>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <title>Preguntas</title>
-</head>
-  <body>
-    <div class="box m-6">
 
+    <div class="box m-6">
       <h1 class="title">Preguntas</h1>
         <% for (let pregunta of preguntas) { %>
           <div class="card">
@@ -21,6 +14,3 @@
     
         <%- include('includes/foot.ejs') %>
     </div>
-
-  </body>
-</html>

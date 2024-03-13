@@ -6,6 +6,12 @@ exports.get_preguntas = (request, response, next) => {
     }); 
 };
 
+exports.get_questions = (request, response, next) => {
+    response.render('preguntas', {
+        username: request.session.username || '',
+    }); 
+};
+
 exports.post_preguntas = (request, response, next) => {
   console.log(request.body);
   const pregunta = new Pregunta(request.body.question, request.body.answer);
