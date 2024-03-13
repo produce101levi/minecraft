@@ -1,19 +1,12 @@
 const express = require('express');
 const router = express.Router();
 
+const letrasController = require('../controllers/letras.controller');
 
-
-router.get('/letras_D', (request, response, next) => {
-    response.render('letras_D');
-})
 
 router.post('/letras_D', (request, response, next) => {
     console.log(request.body);
     
-})
-
-router.get('/letras_7R', (request, response, next) => {
-    response.render('letras_7R');
 })
 
 router.post('/letras_7R', (request, response, next) => {
@@ -21,5 +14,7 @@ router.post('/letras_7R', (request, response, next) => {
     
 })
 
+router.get('/letras_D', letrasController.get_letras_D);
+router.get('/letras_7R', letrasController.get_letras_7R);
 
 module.exports = router;
