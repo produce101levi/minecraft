@@ -58,12 +58,21 @@
                   <div class="navbar-end">
                     <div class="navbar-item">
                       <div class="buttons">
-                        <a class="button is-danger">
-                          <strong>Sign up</strong>
-                        </a>
-                        <a class="button is-light">
-                          Log in
-                        </a>
+                        <% if (username == '') { %> 
+                          <a class="button is-danger">
+                              <strong>Sign Up</strong>
+                          </a>
+                          <a href="/user/login" class="button is-light">
+                              Log In
+                          </a>
+                      <% } else { %>
+                          <p class="navbar-item">
+                              Hola, &nbsp;<strong><%= username %></strong> 
+                          </p>
+                          <a href="/user/logout" class="button is-danger">
+                              Salir
+                          </a>
+                      <% } %>
                       </div>
                     </div>
                   </div>

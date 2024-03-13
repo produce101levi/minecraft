@@ -1,7 +1,9 @@
 const Pregunta = require('../models/preguntas.model');
 
 exports.get_preguntas = (request, response, next) => {
-    response.render('lista_preguntas'); 
+    response.render('lista_preguntas', {
+        username: request.session.username || '',
+    }); 
 };
 
 exports.post_preguntas = (request, response, next) => {
@@ -24,5 +26,6 @@ exports.get_root = (request, response, next) => {
     response.render('lista_preguntas', {
         preguntas: Pregunta.fetchAll(),
         ultima_pregunta: ultima_pregunta,
+        username: request.session.username || '',
     });
 }

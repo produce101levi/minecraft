@@ -1,4 +1,4 @@
-<%- include('includes/head.ejs') %>
+<%- include('includes/head.ejs', {username: username}) %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,12 +15,12 @@
             <br><%= pregunta.answer %>
           </div>
         <% }; %>
+        <% if(ultima_pregunta != '') { %>
+          <div> La última pregunta fue <%-ultima_pregunta%>.</div>
+        <% } %>
+    
+        <%- include('includes/foot.ejs') %>
     </div>
 
-    <% if(ultima_pregunta != '') { %>
-      <div> La última pregunta fue <%-ultima_pregunta%>.</div>
-    <% } %>
-
-    <%- include('includes/foot.ejs') %>
   </body>
 </html>
