@@ -1,0 +1,16 @@
+<%- include('includes/head.ejs', {username: username}) %>
+
+    <div class="box m-6">
+      <h1 class="title">Preguntas</h1>
+        <% for (let pregunta of preguntas) { %>
+          <div class="card">
+            <strong><%= pregunta.Pregunta %></strong>
+            <br><%= pregunta.respuesta %>
+          </div>
+        <% }; %>
+        <% if(ultima_pregunta != '') { %>
+          <div> La última pregunta fue <%=ultima_pregunta%>.</div>
+        <% } %>
+    
+        <%- include('includes/foot.ejs') %>
+    </div>

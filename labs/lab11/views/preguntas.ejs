@@ -1,13 +1,16 @@
-<%- include('includes/head.ejs') %>
-      <div class="box m-6">
+<%- include('includes/head.ejs', {username: username}) %>
+     
+     <div class="box m-6">
       <figure class="image is-3by1">
           <img src="https://i.pinimg.com/originals/24/5c/a6/245ca640095317ecff88ac8b5a995621.jpg">
         </figure>
         <br><h1 class="title">Ingresar preguntas</h1>
-        <form action="/preguntas" method="POST">
+        <form action="/lista_preguntas" method="POST">
           <label class="label" for="question">Pregunta</label>
-          <input name ="question" id="question" type="text" class="input"><br>
-          <input class="button is-danger" type="submit" value="Construir">
+          <input name ="question" id="question" type="text" class="input" autocomplete="off"><br>
+          <label class="label" for="answer">Respuesta</label>
+          <input name ="answer" id="answer" type="text" class="input" autocomplete="off"><br>
+          <input class="button is-danger" type="submit" value="Preguntar">
         </form>
             <section id="Preguntas">
                 <br><h2 class="subtitle"><strong>Preguntas</strong></h2>
@@ -88,8 +91,27 @@
                 Identifiación de problemas, estudio de viabilidad, análisis de requisitos,
                 diseño de sistemas, implementación de sistema, implementación y despliegue, 
                 operación y mantemiento, evaluación y mejora continua, desactivación.
+                <br><br><br><strong>Describe el archivo package.json.</strong><br>
+                El archivo package.json indica el nombre del proyecto, la versión, la descripción,
+                el script principal que será la fuente del JavaScript en el archvio (en éste caso, lab11.js),
+                Y los scripts. El script "start" sirve para que en la terminal, mandemos el comando
+                "npm start" y con eso inicializar el servidor. 
+                <br>El archivo también indica el nombre del autor (Leví Díaz) y la licencia (MIT), así como las
+                versiones de EJS, express, body parser que hayan sido instaladas.
                 <br><br><br><strong>¿Qué otros templating engines existen para node?</strong><br>
                 Jade, Vash, Mustache, Dust.js, Nunjucks, Handlebars, atpl, haml.
+                <br><br><br><strong>¿Qué beneficios encuentras en el estilo MVC?</strong>
+                <br>Es un estilo más claro y organizado para enviar datos al servidor y a una
+                base de datos. Con éste modelo se puede saber qué archivos tienen qué función.
+                <br><br><br><strong>¿Qué desventajas le ves?</strong>
+                <br>La única desventaja que le veo es la complejidad inicial, se debe conocer
+                muy bien el modelo para poder ejecutarlo.
+                <br><br><br><strong>¿Qué ventajas tiene escribir el código SQL únicamente en la capa del modelo?</strong>
+                <br>Que el código ya no se esparce por los diferentes archivos que existen y si existe una falla ya no es necesario buscar en todos los archivos.
+                <br><br><br><strong>¿Qué es SQL injection y cómo se puede prevenir?</strong>
+                <br>Son ataques en los que se manipulan las bases de datos a través de consultas SQL
+                maliciosas. Se pueden evitar colocando parámetros como ? en datos no definidos
+                previamente dentro de la base de datos.
             </section>
             <section>
                 <br><button class="button is-danger" onclick="alert('Gracias por visitar mi página <3')">Siiii!!</button><br><br>
