@@ -1,4 +1,4 @@
-db = require('../util/database');
+const db = require('../util/database');
 
 module.exports = class Pregunta {
     constructor(mi_question, mi_answer){
@@ -7,13 +7,26 @@ module.exports = class Pregunta {
     }
 
     save() {
-        preguntas.push({
-            question: this.question,
-            answer: this.answer,
-        })
+        return db.execute(
+            'INSERT INTO preguntas (Pregunta, respuesta, username) VALUES(?, ?, "levi_101")',
+            [this.question, this.answer]
+        );
     }
 
     static fetchAll() {
-        return db.execute('SELECT * FROM sitio_preguntas');
+        return db.execute('SELECT * FROM preguntas');
+    }
+
+    static fetchOne(id) {
+        return db.execute('SELECT * FROM preguntas WHERE id=?',
+        [id]);
+    }
+
+    static fetch(id) {
+        if (id) {
+            return this.fetchOne(id);
+        } else {
+            return this.fetchAll();
+        }
     }
 }

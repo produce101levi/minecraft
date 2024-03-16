@@ -15,10 +15,14 @@ exports.get_questions = (request, response, next) => {
 exports.post_preguntas = (request, response, next) => {
   console.log(request.body);
   const pregunta = new Pregunta(request.body.question, request.body.answer);
-  pregunta.save();
-  response.setHeader('Set-Cookie', 'ultima_pregunta=' + request.body.question + '; HttpOnly');
-  response.redirect('/');
-}
+  pregunta.save()
+        .then(([rows, fieldData]) => {
+            response.setHeader('Set-Cookie', 
+                'ultima_pregunta=' + request.body.question + '; HttpOnly');
+            response.redirect('/');
+        })
+        .catch((error) => {console.log(error)});
+    };
 
 exports.get_root = (request, response, next) => {
     console.log('Ruta /');
@@ -29,7 +33,8 @@ exports.get_root = (request, response, next) => {
         ultima_pregunta = '';
     }
     console.log(ultima_pregunta);
-    Pregunta.fetchAll().then(([rows, fieldData]) => {
+    
+    Pregunta.fetch(request.params.preguntas_id).then(([rows, fieldData]) => {
         console.log(rows);
         response.render('lista_preguntas', {
             preguntas: rows,
@@ -41,4 +46,5 @@ exports.get_root = (request, response, next) => {
     .catch((error) => {
         console.log(error);
     });
+
 }

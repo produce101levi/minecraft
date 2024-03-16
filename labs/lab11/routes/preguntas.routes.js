@@ -11,6 +11,7 @@ router.post('/preguntas', (request, response, next) => {
 router.get('/lista_preguntas', preguntasController.get_preguntas);
 router.post('/lista_preguntas', preguntasController.post_preguntas);
 router.get('/preguntas', preguntasController.get_questions);
+// router.get('/:pregunta_id', preguntasController.get_root);
 router.get('/', preguntasController.get_root);
 
 

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Mar 13, 2024 at 07:54 PM
+-- Generation Time: Mar 14, 2024 at 08:56 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -30,19 +30,8 @@ SET time_zone = "+00:00";
 CREATE TABLE `preguntas` (
   `ID` int(10) NOT NULL,
   `Pregunta` varchar(300) NOT NULL,
-  `username` varchar(45) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `respuestas`
---
-
-CREATE TABLE `respuestas` (
-  `ID` int(10) NOT NULL,
-  `Respuesta` varchar(300) NOT NULL,
-  `IDPregunta` int(11) NOT NULL
+  `username` varchar(45) NOT NULL,
+  `respuesta` varchar(300) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 -- --------------------------------------------------------
@@ -57,6 +46,13 @@ CREATE TABLE `usuario` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
+-- Dumping data for table `usuario`
+--
+
+INSERT INTO `usuario` (`username`, `contraseña`) VALUES
+('levi_101', '');
+
+--
 -- Indexes for dumped tables
 --
 
@@ -66,13 +62,6 @@ CREATE TABLE `usuario` (
 ALTER TABLE `preguntas`
   ADD PRIMARY KEY (`ID`),
   ADD KEY `username` (`username`);
-
---
--- Indexes for table `respuestas`
---
-ALTER TABLE `respuestas`
-  ADD PRIMARY KEY (`ID`),
-  ADD KEY `IDPregunta` (`IDPregunta`);
 
 --
 -- Indexes for table `usuario`
@@ -88,13 +77,7 @@ ALTER TABLE `usuario`
 -- AUTO_INCREMENT for table `preguntas`
 --
 ALTER TABLE `preguntas`
-  MODIFY `ID` int(10) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `respuestas`
---
-ALTER TABLE `respuestas`
-  MODIFY `ID` int(10) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Constraints for dumped tables
@@ -105,12 +88,6 @@ ALTER TABLE `respuestas`
 --
 ALTER TABLE `preguntas`
   ADD CONSTRAINT `preguntas_ibfk_1` FOREIGN KEY (`username`) REFERENCES `usuario` (`username`);
-
---
--- Constraints for table `respuestas`
---
-ALTER TABLE `respuestas`
-  ADD CONSTRAINT `respuestas_ibfk_1` FOREIGN KEY (`IDPregunta`) REFERENCES `preguntas` (`ID`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

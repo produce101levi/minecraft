@@ -4,12 +4,12 @@
       <h1 class="title">Preguntas</h1>
         <% for (let pregunta of preguntas) { %>
           <div class="card">
-            <strong><%= pregunta.question %></strong>
-            <br><%= pregunta.answer %>
+            <strong><%= pregunta.Pregunta %></strong>
+            <br><%= pregunta.respuesta %>
           </div>
         <% }; %>
         <% if(ultima_pregunta != '') { %>
-          <div> La última pregunta fue <%-ultima_pregunta%>.</div>
+          <div> La última pregunta fue <%=ultima_pregunta%>.</div>
         <% } %>
     
         <%- include('includes/foot.ejs') %>
