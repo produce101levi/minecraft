@@ -6,6 +6,7 @@
         </figure>
         <br><h1 class="title">Ingresar preguntas</h1>
         <form action="/lista_preguntas" method="POST">
+        <input type="hidden" name="_csrf" value="<%= csrfToken %>" >
           <label class="label" for="question">Pregunta</label>
           <input name ="question" id="question" type="text" class="input" autocomplete="off"><br>
           <label class="label" for="answer">Respuesta</label>

@@ -8,6 +8,7 @@ exports.get_login = (request, response, next) => {
         username: request.session.username || '',
         registrar: false,
         error: error,
+        csrfToken: request.csrfToken(),
     });
 };
 
@@ -37,8 +38,6 @@ exports.post_login = (request, response, next) => {
             }) .catch(err => {
                 response.redirect('/user/login');
             });
-            request.session.username = request.body.username;
-            response.redirect('/')
         } else {
             request.session.error = 'El usuario y/o contraseña son incorrectos.'
             response.redirect('/user/login');
@@ -62,6 +61,7 @@ exports.get_signup = (request, response, next) => {
         username: request.session.username || '',
         registrar: true,
         error: error,
+        csrfToken: request.csrfToken(),
     });
 };
 

@@ -1,5 +1,5 @@
 const db = require('../util/database');
-const bcrypt = require(bcryptjs);
+const bcrypt = require('bcryptjs');
 
 module.exports = class Usuario {
 
@@ -9,10 +9,10 @@ module.exports = class Usuario {
     }
 
     save() {
-        return bcryps.hash(this.password, 12).then((password_cifrado) => {
+        return bcrypt.hash(this.password, 12).then((password_cifrado) => {
             return db.execute(
             'INSERT INTO usuario (username, contraseña) VALUES (?, ?)',
-            [this.username, password_crifrado]
+            [this.username, password_cifrado]
             );
         })
         .catch((error) => {

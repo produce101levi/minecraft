@@ -3,12 +3,14 @@ const Pregunta = require('../models/preguntas.model');
 exports.get_preguntas = (request, response, next) => {
     response.render('lista_preguntas', {
         username: request.session.username || '',
+        csrfToken: request.csrfToken(),
     }); 
 };
 
 exports.get_questions = (request, response, next) => {
     response.render('preguntas', {
         username: request.session.username || '',
+        csrfToken: request.csrfToken(),
     }); 
 };
 
