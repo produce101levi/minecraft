@@ -2,6 +2,11 @@
 
 <div class="box m-6">
 <h1 class="title"><% if(registrar) {%> Registrarse <%} else {%> Iniciar sesión <% } %></h1>
+<% if (error) { %> 
+    <div class="notification is-danger">
+        <strong><%= error %></strong>
+    </div>
+<% } %>
 <form action="/user/<% if(registrar) { %>login<% }else { %>signup <% } %>" method="POST">
     <label class="label" for="username">Nombre de usuario</label>
     <input name="username" id="username" type="text" class="text"><br>

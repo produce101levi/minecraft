@@ -15,7 +15,12 @@ module.exports = class Usuario {
             [this.username, password_crifrado]
             );
         })
-        .catch((error) => console.log(error));
+        .catch((error) => {
+            console.log(error);
+            throw Error('Nombre de usuario ya en uso.')
+        
+        })
+        
 
     }
 
