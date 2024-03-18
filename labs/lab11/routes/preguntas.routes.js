@@ -1,7 +1,6 @@
 const express = require('express');
 const router = express.Router();
 const isAuth = require('../util/is_auth');
-
 const preguntasController = require('../controllers/preguntas.controller');
 
 router.post('/preguntas', (request, response, next) => {

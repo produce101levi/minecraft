@@ -1,4 +1,4 @@
-const Usuario = require('../models/usuario.model.js');
+const Usuario = require('../models/usuario.model');
 const bcrypt = require('bcryptjs');
 
 exports.get_login = (request, response, next) => {
@@ -20,31 +20,32 @@ exports.get_home = (request, response, next) => {
 
 exports.post_login = (request, response, next) => {
     Usuario.fetchOne(request.body.username)
-    .then(([users, fieldData]) => {
-        if(users.length == 1) {
-            const user = users[0];
-            bcrypt.compare(request.body.password, user.password)
-            .then(doMatch => {
-                if(doMatch) {
-                    request.session.isLoggedIn = true;
-                    request.session.username = user.username;
-                    return request.session.save(err => {
-                        response.redirect('/');
-                    });
-                } else {
-                    request.session.error = 'El usuario y/o contraseña son incorrectos.';
-                    return response.redirect('/user/login');
-                }
-            }) .catch(err => {
+        .then(([users, fieldData]) => {
+            if(users.length == 1) {
+                const user = users[0];
+                bcrypt.compare(request.body.password, user.contraseña)
+                .then(doMatch => {
+                    if(doMatch) {
+                        request.session.isLoggedIn = true;
+                        request.session.username = user.username;
+                        return request.session.save(err => {
+                           response.redirect('/preguntas');
+                        });
+                 } else {
+                        request.session.error = 'El usuario y/o contraseña son incorrectos.';
+                        return response.redirect('/user/login');
+                    }
+                }) .catch(err => {
+                    console.log(err);
+                    response.redirect('/user/login');
+                });
+            } else {
+                request.session.error = 'El usuario y/o contraseña son incorrectos.'
                 response.redirect('/user/login');
-            });
-        } else {
-            request.session.error = 'El usuario y/o contraseña son incorrectos.'
-            response.redirect('/user/login');
-        }
-    })
-    .catch((error) => {console.log(error)});
-}
+            }
+        })
+        .catch((error) => {console.log(error)});
+};
 
 
 exports.get_logout = (request, response, next) => {

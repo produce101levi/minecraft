@@ -7,7 +7,7 @@
         <strong><%= error %></strong>
     </div>
 <% } %>
-<form action="/user/<% if(registrar) { %>login<% }else { %>signup <% } %>" method="POST">
+<form action="/user/<% if(registrar) { %>signup<% }else { %>login <% } %>" method="POST">
     <input type="hidden" name="_csrf" value="<%= csrfToken %>" >
     <label class="label" for="username">Nombre de usuario</label>
     <input name="username" id="username" type="text" class="text"><br>
